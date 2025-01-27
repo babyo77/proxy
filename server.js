@@ -20,6 +20,8 @@ app.use(
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
   })
 );
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.post(
   "/upload-image",
   createProxyMiddleware({
